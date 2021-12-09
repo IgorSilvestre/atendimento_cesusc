@@ -11,6 +11,16 @@ class Student:
         self.class_history = class_history
 
 # FUNCTIONS
+def create_folders ():
+    if (os.path.isdir('resource_files') == False):
+        os.mkdir ('resource_files')
+    if (os.path.isdir ('resource_files/students') == False):
+        os.mkdir ('resource_files/students')
+    if (os.path.isdir ('resource_files/enrollment_certificates') == False):
+        os.mkdir ('resource_files/enrollment_certificates')
+    if (os.path.isdir ('resource_files/attendance_certificates') == False):
+        os.mkdir ('resource_files/attendance_certificates')
+
 def create_student ():
     student_full_name = input ('Nome Completo: ')
     student_name = Student (full_name = '', birth_date = '', major = '', attendance = '', class_history = '')
@@ -178,6 +188,7 @@ def attendance_certificate (student_name):
     return 0
 
 def main():
+    create_folders ()
     op = ''
     while (op != '1' and op != '2' and op != '3' and op != '4' and op != '5' and op != '6'):
         print ('PROGRAMA DE ATENDIMENTO CESUSC\n')
